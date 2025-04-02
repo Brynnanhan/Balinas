@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShutterAndScript</title>
+    <link rel="stylesheet" href="draft2.css">
+</head>
+<body>
+    <div class="navbar">
+    <div class="logo">
+        <img src="jbr.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#favorites">FAVORITES</a>
+        <a href="#activity">ACTIVITY</a>
+        <a href="#about">ABOUT ME</a>
+    </div>
+    <button class="close-button" onclick="closeWindow()">Close Window</button>
+</div>
+
+    <div class="header">
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <h1>Welcome to My ShutterAndScript</h1>
+            <div class="carousel">
+                <img src="images/c1.jpg" alt="Profile 1" class="carousel-image active">
+                <img src="images/c2.jpg" alt="Profile 2" class="carousel-image">
+                <img src="images/c3.jpg" alt="Profile 3" class="carousel-image">
+                <img src="images/c4.jpg" alt="Profile 4" class="carousel-image">
+                <img src="images/c5.jpg" alt="Profile 5" class="carousel-image">
+                <img src="images/c6.jpg" alt="Profile 6" class="carousel-image">
+                <img src="images/c7.jpg" alt="Profile 7" class="carousel-image">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="setCarouselImage(0)"></span>
+                    <span class="dot" onclick="setCarouselImage(1)"></span>
+                    <span class="dot" onclick="setCarouselImage(2)"></span>
+                    <span class="dot" onclick="setCarouselImage(3)"></span>
+                    <span class="dot" onclick="setCarouselImage(4)"></span>
+                    <span class="dot" onclick="setCarouselImage(5)"></span>
+                    <span class="dot" onclick="setCarouselImage(6)"></span>
+                </div>
+            </div>
+            <p class="tagline">Framing My Journey, One Line of Code at a Time</p>
+            <br>
+            <p class="bio">I’m Joanna R. Balinas, a 2nd-year BSIT student from Section 2B-Pseudocode. While I’m continuously honing my coding skills, I bring a creative perspective to technology through my passion for photography and exploration. As an introvert, I enjoy capturing meaningful moments and translating ideas into visual and digital forms. This platform showcases my journey in merging creativity with technology, highlighting my growth and achievements along the way.</p>
+			<button class="cta-button" onclick="showSection('about')">Get Started</button>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div id="portfolio" class="section">
+            <h1>Portfolio</h1>
+            <div class="portfolio-container">
+                <h2>Brain Master Challenge</h2>
+                <div class="portfolio-buttons">
+                    <button class="portfolio-btn" onclick="convertTemperature()">1. Temperature Converter (5 pts)</button>
+                    <button class="portfolio-btn" onclick="longerWord()">2. The Longer Word (5 pts)</button>
+                    <button class="portfolio-btn" onclick="birthstone()">3. Know My Birthstone (7 pts)</button>
+                    <button class="portfolio-btn" onclick="basicOperators()">4. Basic Operations (7 pts)</button>
+                    <button class="portfolio-btn" onclick="computeAcceleration()">5. Compute for Acceleration (8 pts)</button>
+                    <button class="close-btn" onclick="goToHome()">❌ Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Section -->
+        <div id="favorites" class="section">
+            <div class="favorites-container">
+                <h2>My Favorites</h2>
+                <p>Check out the things I love the most!</p>
+                <div class="gallery-3d">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f1.jpg" alt="Favorite 1" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f1.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Cluster 3 Youth Camp @Serindipity Resort</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment1" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment1')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment1')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f2.jpg" alt="Favorite 2" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f2.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Jesus Reigns 2025</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment2" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment2')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment2')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f3.jpg" alt="Favorite 3" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f3.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Gorgeous Red Flower</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment3" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment3')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment3')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f4.jpg" alt="Favorite 4" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f4.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Enigmantic Dawn</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment4" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment4')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment4')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment4"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f5.jpg" alt="Favorite 5" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f5.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Grandma's Best Birthday</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment5" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment5')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment5')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment5"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f6.jpg" alt="Favorite 6" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f2.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Talaytay Camp @April5-2023</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment6" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment6')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment6')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment6"></div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<div class="card">
+                        <div class="card-inner">
+                            <div class="-image-container">
+                                <img src="images/f10.jpg" alt="Favorite 10" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f2.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>ROTC Class</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment10" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment10')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment10')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment10"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f7.jpg" alt="Favorite 7" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f7.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>Enchanted Night by the Fire</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment7" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment7')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment7')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment7"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="image-container">
+                                <img src="images/f8.jpg" alt="Favorite 2" class="gallery-image">
+                                <button class="expand-btn" onclick="expandImage('images/f8.jpg')">🔍 Expand</button>
+                            </div>
+                            <div class="card-content">
+                                <h3>BSIT 1B's First Picture</h3>
+                                <button class="like-btn" onclick="reactHeart(this)">🤍 Like</button>
+                                <textarea class="comment-box" id="comment8" placeholder="Leave a comment"></textarea>
+                                <button class="comment-btn" onclick="postComment('comment8')">📝 Post Comment</button>
+                                <button class="toggle-comments-btn" onclick="toggleComments('comment8')" data-state="collapsed">See Comments</button>
+                                <div class="comments-list hidden" id="comments-comment8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div id="activity" class="section">
+            <h1>BSIT Projects and Achievments</h1>
+            <div class="activity-container">
+                <h2>SmartFare System Application</h2>
+                <p class="activity-subtitle">Final project in PC 212 and OOP course</p>
+                <div class="carousel activity-carousel" id="smartfare-carousel">
+                    <div class="carousel-inner">
+                        <img src="images/sm1.jpg" alt="SmartFare Image 1" class="activity-carousel-image active">
+                        <img src="images/sm2.jpg" alt="SmartFare Image 2" class="activity-carousel-image">
+                        <img src="images/sm3.jpg" alt="SmartFare Image 3" class="activity-carousel-image">
+                        <img src="images/sm4.jpg" alt="SmartFare Image 4" class="activity-carousel-image">
+                        <img src="images/sm5.jpg" alt="SmartFare Image 5" class="activity-carousel-image">
+                        <img src="images/sm6.jpg" alt="SmartFare Image 6" class="activity-carousel-image">
+                        <img src="images/sm7.jpg" alt="SmartFare Image 7" class="activity-carousel-image">
+                        <img src="images/sm8.jpg" alt="SmartFare Image 8" class="activity-carousel-image">
+                        <img src="images/sm9.jpg" alt="SmartFare Image 9" class="activity-carousel-image">
+                    </div>
+                    <div class="carousel-dots activity-dots">
+                        <span class="dot active" onclick="setSmartFareCarouselImage(0)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(1)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(2)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(3)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(4)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(5)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(6)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(7)"></span>
+                        <span class="dot" onclick="setSmartFareCarouselImage(8)"></span>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <div id="smartfare-details-wrapper" class="details-clamped">
+                        <p id="smartfare-details-text" class="bio">
+                            <b>SmartFare</b> was our final project in the PC 212 and OOP course, aimed at automating fare calculation and collection for the Ceres bus liner. <br> <br>
+                            Our team consist of 5 members — Joanna Balinas, Donalen Alvarado, Rosejenel Garcia, Aslea Rodriguez, and Niño Oyangoren —dedicated sleepless nights to bring this system to life. <br><br>
+                            With only two laptops, we worked tirelessly, debugging errors and refining the system.  <br><br>
+            
+                            However, the biggest challenge came on the day of our defense. The night before, our system was running perfectly, but on the actual day, it <i>crashed</i>.  
+                            Spyder IDE encountered a bug, causing the kernel to die and restart whenever a user logged in. We tried countless fixes, but nothing worked.  
+                            It was a moment of panic, frustration, and heartbreak, yet we stood together as a team, proving that perseverance and teamwork matter more than anything.<br><br>  
+            
+                            <b>Despite the challenges, SmartFare was more than just a system—it was a testament to our dedication and resilience in the face of adversity.<br><b>
+                        </p>
+                    </div>
+                    <span class="see-more-button" onclick="toggleContent(this, 'smartfare-details-wrapper')">See more</span>
+                </div>
+            </div>
+            
+
+            <div class="activity-container">
+				<h2>An Unforgettable Journey in Object-Oriented Programming</h2>
+				<p class="activity-subtitle">Code Defense and Correction in Life</p>
+				<div class="carousel activity-carousel" id="codefest-carousel">
+					<div class="carousel-inner">
+						<img src="images/oop1.png" alt="OOP Journey Image 1" class="activity-carousel-image active">
+						<img src="images/oop2.png" alt="OOP Journey Image 2" class="activity-carousel-image">
+						<img src="images/oop3.png" alt="OOP Journey Image 2" class="activity-carousel-image">
+						<img src="images/oop4.png" alt="OOP Journey Image 3" class="activity-carousel-image">
+						<img src="images/oop5.png" alt="OOP Journey Image 4" class="activity-carousel-image">
+						
+					</div>
+					<div class="carousel-dots activity-dots">
+						<span class="dot active" onclick="setCodeFestCarouselImage(0)"></span>
+						<span class="dot" onclick="setCodeFestCarouselImage(1)"></span>
+						<span class="dot" onclick="setCodeFestCarouselImage(2)"></span>
+						<span class="dot" onclick="setCodeFestCarouselImage(3)"></span>
+						<span class="dot" onclick="setCodeFestCarouselImage(4)"></span>
+						<span class="dot" onclick="setCodeFestCarouselImage(5)"></span>
+					</div>
+				</div>
+				<div class="details-container">
+					<div id="codefest-details-wrapper" class="details-clamped">
+						<p id="codefest-details-text" class="bio">
+						My experience in our <b>OOP course was nothing short of intense</b>. Out of 14 codes, I had only managed to review two before my defense. 
+						The pressure was overwhelming, and as I stood there explaining my work, nerves took over. I was deeply disappointed in myself for not being able to check at least half of
+						the codes, and I genuinely feared I would have to retake the course.<br>
+						However, despite my shortcomings, our professor showed understanding and gave me the opportunity to pass. I am incredibly grateful for her consideration—it was a
+						humbling reminder that while perfection isn't always possible, perseverance and learning from our struggles matter just as much.</p>
+					</div>
+					<span class="see-more-button" onclick="toggleContent(this, 'codefest-details-wrapper')">See more</span>
+				</div> 
+			</div>
+        </div>
+
+        <!-- Updated About Section -->
+<div id="about" class="section">
+    <h1>About Me</h1>
+    <div class="about-container">
+        <header>Balinas, Joanna R.</header>
+
+        <div class="about-box intro-box">
+            <h2>👋 Hello! Nice to meet you</h2>
+            <p>Age: 21 years young</p>
+            <p>BirthDate: July 19, 2003</p>
+            <p>Address: Tabon, Dalaguete, Cebu</p>
+            <p>Currently a 2nd-year BSIT student, exploring the dynamic world of technology while pursuing my passion for creativity and adventure.</p>
+        </div>
+
+        <div class="about-box passion-box">
+            <h2>📸 My Passion & Interests</h2>
+            <p>When I’m not busy coding or studying, I love indulging in my favorite hobbies:</p>
+            <ul>
+                <li>📷 Photography – Capturing life’s moments through a lens.</li>
+                <li>🏍️ Going on rides – Feeling the thrill of the open road.</li>
+                <li>🌏 Exploring new things – Discovering different places, cultures, and ideas.</li>
+            </ul>
+        </div>
+
+        <!--<div class="about-box personality-box"> 
+            <h2>🌟 My Personality</h2>
+            <p>I’m a blend of creativity and analytical thinking. I’m driven, curious, and open-minded, with a passion for learning and self-improvement. I enjoy deep conversations and seek meaningful connections while exploring the unknown.</p>
+        </div> -->
+		<div class="about-box personality-box">
+            <h2>🌟 My Personality</h2>
+            <div class="about-image">
+                <img src="images/mainPersonality.jpg" alt="Joanna R. Balinas" class="profile-image">
+            </div>
+            <p>I’m a blend of creativity and analytical thinking. I’m driven, curious, and open-minded, with a passion for learning and self-improvement. I enjoy deep conversations and seek meaningful connections while exploring the unknown.</p>
+			<p>As an INTJ (Architect) personality, I thrive on logic, creativity, and efficiency. I see the world as a puzzle—one that I’m always eager to solve with well-thought-out strategies and innovative ideas.
+				<br><br>I prefer depth over small talk, valuing intelligence, ambition, and authenticity. Every challenge is an opportunity to learn and refine my skills, and I naturally gravitate toward structured, goal-oriented thinking. While I may seem reserved, I genuinely enjoy exchanging ideas with those who appreciate curiosity and insight.
+				<br><br>With a strong independent streak, I don’t just accept the way things are—I seek ways to improve them. Whether in [your interests, e.g., programming, writing, photography], I bring a methodical and creative approach to everything I do.
+				<br><br>If you appreciate big ideas, strategic thinking, or thoughtful discussions, we’ll probably get along just fine!
+        </div>
+
+        <div class="about-box bio-box">
+            <h2>📚 Biography</h2>
+            <p>From an early age, I was fascinated by technology and creativity. I developed a love for exploring both digital and artistic mediums, which led me to pursue a degree in IT. Along the way, I discovered a passion for capturing moments through photography and finding inspiration in life’s adventures.</p>
+        </div>
+
+        <div class="about-box contact-box">
+            <h2>📬 Contact Me</h2>
+            <div class="contact-info">
+                <a href="https://web.facebook.com/g.w.nh.blyn.s" target="_blank">🌐 Facebook: Joanna R. Balinas</a>
+                <a href="mailto:joanna.balinas@gmail.com">📧 Gmail: joannarmb.saved02@gmail.com</a>
+                <p>📞 Contact Number: +63 956 2856 528</p>
+            </div>
+        </div>
+
+        <div class="about-box quote-box">
+            <h2>💬 My Favorite Quote</h2>
+            <button class="btn" onclick="showQuote()">View Quote</button>
+        </div>
+
+        <footer>
+            © 2025 Joanna Ramos Balinas | ShutterAndScript
+        </footer>
+    </div>
+
+    <!-- Dialogue Box for Quote -->
+    <div id="quoteModal" class="dialogue-modal">
+        <div class="dialogue-box">
+            <div class="dialogue-content">
+                <p><em>"The void yawns open, yet within its depths lies a spark of resilience."</em></p>
+            </div>
+            <div class="dialogue-tail"></div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!-- Modal for expanded image -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal" onclick="closeModal()">×</span>
+        <img id="expanded-image" class="modal-content" src="" alt="Expanded Image">
+    </div>
+
+    <script src="draft2.js"></script>
+</body>
+</html>
